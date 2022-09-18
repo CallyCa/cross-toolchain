@@ -2,9 +2,7 @@
 
 set -o pipefail
 
-
 source scripts/adjustEnvVars.sh || exit $?
-
 
 #
 # Define steps paths
@@ -13,10 +11,8 @@ source scripts/adjustEnvVars.sh || exit $?
 PRODUCTS=(bin lib libexec share *-nodeos-linux-musl*)
 PREBUILD=prebuilds/$KERNEL_NAME-$NODE_ARCH.tar.gz
 
-
 # Clean products previously to create them
 rm -rf ${PRODUCTS[@]} || exit 1
-
 
 #
 # Build cross toolchain for all supported platforms
@@ -31,7 +27,6 @@ npm run build -- -M raspi3 && npm test -- -M raspi3 && rm -rf build || exit 14
 # Upgrade list of products
 PRODUCTS=(bin lib libexec share *-nodeos-linux-musl*)
 
-
 #
 # Pack toolchain in a node-gyp compatible way
 #
@@ -40,7 +35,6 @@ STEP_DIR=$PREBUILD
 
 mkdir -p prebuilds                          &&
 tar -cf - ${PRODUCTS[@]} | gzip > $STEP_DIR || err 20
-
 
 #
 # Upload release to GitHub and npm

@@ -2,9 +2,7 @@
 
 set -o pipefail
 
-
-DOWNLOAD=https://github.com/NodeOS/nodeos-cross-toolchain/releases/download/v{version}/{platform}-{arch}.tar.gz
-
+DOWNLOAD=https://github.com/CallyCa/cross-toolchain/releases/download/v{version}/linux-x64.tar.gz
 
 #
 # Download or build cross-toolchain
