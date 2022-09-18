@@ -13,5 +13,6 @@ before_install:
 install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install gnu-sed --with-default-names ; fi
 script:
-  - npm install
-  - npm run BigRedButton
+  - npm install -g yarn
+  - yarn install
+  - yarn BigRedButton
